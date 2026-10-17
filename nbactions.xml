@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+    <action>
+        <actionName>run</actionName>
+        <goals>
+            <goal>process-classes</goal>
+            <goal>org.codehaus.mojo:exec-maven-plugin:3.5.0:java</goal>
+        </goals>
+        <properties>
+            <exec.mainClass>hrms.Main</exec.mainClass>
+        </properties>
+    </action>
+    <action>
+        <actionName>debug</actionName>
+        <goals>
+            <goal>process-classes</goal>
+            <goal>org.codehaus.mojo:exec-maven-plugin:3.5.0:java</goal>
+        </goals>
+        <properties>
+            <exec.mainClass>hrms.Main</exec.mainClass>
+            <exec.args>-agentlib:jdwp=transport=dt_socket,server=y,suspend=y,address=localhost:5005</exec.args>
+        </properties>
+    </action>
+</actions>

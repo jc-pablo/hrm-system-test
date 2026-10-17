@@ -1,0 +1,12 @@
+HRMS Overnight Attendance Update
+
+Attendance time entry now uses a 12-hour value plus mutually exclusive AM and PM checkboxes for both Time In and Time Out.
+
+Example:
+- Attendance Date: 2026-10-17
+- Time In: 07:00 PM
+- Time Out: 06:00 AM
+
+This record is saved against the shift start date. Since Time Out is earlier than Time In, the app treats it as next-day clock-out. The Attendance table and Attendance Register show "6:00 AM (next day)". The database no longer requires time_out >= time_in. On startup, the app removes the former CK_ATTENDANCE_TIME check constraint from an older embedded Derby database when present.
+
+AM/PM conversion smoke test passed for 7:00 PM -> 19:00, 6:00 AM -> 06:00, 12:00 AM -> 00:00, and 12:00 PM -> 12:00. Malformed 13:75 input was rejected. Java sources compile with JDK 17. A live Derby database test still needs to be performed in NetBeans; see docs/testing-checklist.md.

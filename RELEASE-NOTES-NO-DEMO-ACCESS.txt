@@ -1,0 +1,7 @@
+HRMS NO-DEMO-ACCESS LOGIN BUILD
+
+This release removes the entire Demo Access panel and all text beneath the Clear/Reset and Exit buttons from the login interface.
+
+If a Demo Access box still appears, stop the old application and open this project from a fresh extraction of this ZIP into a new directory. In NetBeans, close the old project, select File > Open Project, choose this release's hrms_netbeans folder, then run Clean and Build before Run. Do not launch an older project from NetBeans Recent Projects.
+
+The demo credentials are retained only in README/testing documentation and the database initializer for class testing; they are not drawn on the login screen.
